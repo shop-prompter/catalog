@@ -1,0 +1,29 @@
+name: Sync Integration Data
+on:
+  repository_dispatch:
+    types: [sdk-released]
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Write SDK File & Build Master JSON
+        run: |
+          mkdir -p public/data
+          # Write individual payload
+          echo '${{ toJson(github.event.client_payload) }}' > public/data/${{ github.event.client_payload.id }}.json
+          
+          # Combine all JSON files into all-integrations.json
+          jq -s '.' public/data/*.json > public/all-integrations.json
+
+      - name: Commit and Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/
+          git commit -m "chore: update integration ${{ github.event.client_payload.id }}" || exit 0
+          git push
