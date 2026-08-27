@@ -17,9 +17,11 @@ jobs:
       - name: Update & Aggregate Data
         run: |
           mkdir -p public/data
+
+          echo 'Updating {{github.event.client_payload.client_payload.integration.id}}'
           
           # Write incoming payload
-          echo '${{ toJson(github.event.client_payload) }}' > "public/data/${{ github.event.client_payload.id }}.json"
+          echo '${{ toJson(github.event.client_payload) }}' > "public/data/${{ github.event.client_payload.client_payload.integration.id }}.json"
           
           # Merge all integrations into one array
           jq -s '.' public/data/*.json > public/all-integrations.json
