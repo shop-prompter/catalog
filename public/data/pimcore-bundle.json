@@ -1,0 +1,51 @@
+{
+  "changelog": "",
+  "id": "pimcore-bundle",
+  "integration": {
+    "api": "control",
+    "capabilities": [
+      {
+        "enabled": true,
+        "extra": [
+          "default-mapping-values",
+          "fallback-skus"
+        ],
+        "key": "catalog-sync"
+      },
+      {
+        "enabled": true,
+        "key": "customer-sync"
+      },
+      {
+        "enabled": true,
+        "key": "content-api"
+      },
+      {
+        "enabled": false,
+        "key": "order-sync"
+      },
+      {
+        "enabled": false,
+        "key": "product-assets"
+      },
+      {
+        "enabled": false,
+        "key": "faqs-api"
+      }
+    ],
+    "description": "Pimcore is an open-core enterprise platform that combines product experience management, master data management, and digital asset management into a single centralized system. It offers e-commerce capabilities on top of the Pimcore platform.",
+    "docsUrl": "https://shopprompter.featurebase.app/en/help/articles/6496266-pimcore-integration",
+    "id": "pimcore",
+    "overview": "The Pimcore integration allows you to sync your Pimcore data with ShopPrompter®. Not only does it allow you to sync your products, categories, and any form of content like blog posts, but it also allows you to sync your customers and orders.\n\nThis allows ShopPrompter® a 360 degree look at your customer and your content.",
+    "prerequisites": [
+      {
+        "title": "Pimcore v10.6.9 or higher"
+      },
+      {
+        "title": "PHP 8.1 or higher"
+      }
+    ]
+  },
+  "publishedAt": "2026-08-27T08:04:23Z",
+  "version": "v1.1.1-alpha6"
+}
