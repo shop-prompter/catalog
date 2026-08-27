@@ -1,5 +1,5 @@
 {
-  "changelog": "",
+  "changelog": "v1.1.1-alpha7",
   "id": "pimcore-bundle",
   "integration": {
     "api": "control",
@@ -46,6 +46,6 @@
       }
     ]
   },
-  "publishedAt": "2026-08-27T08:04:23Z",
-  "version": "v1.1.1-alpha6"
+  "publishedAt": "2026-08-27T08:06:48Z",
+  "version": "v1.1.1-alpha7"
 }
