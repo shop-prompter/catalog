@@ -1,6 +1,6 @@
 [
   {
-    "changelog": "",
+    "changelog": "Release v1.2.0",
     "id": "pimcore-bundle",
     "integration": {
       "api": "control",
@@ -47,7 +47,7 @@
         }
       ]
     },
-    "publishedAt": "2026-10-27T10:10:21Z",
-    "version": "v1.1.2"
+    "publishedAt": "2026-11-03T15:19:17Z",
+    "version": "v1.2.0"
   }
 ]
