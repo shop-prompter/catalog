@@ -1,5 +1,5 @@
 {
-  "changelog": "v2.2.0 release",
+  "changelog": "v2.3.0 release",
   "id": "js",
   "integration": {
     "api": "touch-points",
@@ -17,6 +17,6 @@
       }
     ]
   },
-  "publishedAt": "2026-11-12T13:45:35Z",
-  "version": "v2.2.0"
+  "publishedAt": "2026-11-12T16:23:17Z",
+  "version": "v2.3.0"
 }
