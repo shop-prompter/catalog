@@ -1,5 +1,27 @@
 [
   {
+    "changelog": "v2.2.0 release",
+    "id": "js",
+    "integration": {
+      "api": "touch-points",
+      "capabilities": [],
+      "description": "The ShopPrompter® JavaScript SDK adds the AI shopping assistant to any website as a framework-agnostic Web Component: plain HTML, Shopify, WordPress, Angular, Svelte and every other stack that renders HTML.",
+      "docsUrl": "",
+      "id": "js",
+      "overview": "Add the `<shop-prompter>` element to your shop, either from a CDN without a build step or via npm. It works with every framework and renders in Shadow DOM, so your shops styles and the assistants styles never interfere.\n\nChoose between a chat bubble, a dialog, a side panel or a full-page chat, adapt colors and fonts to your brand, and react to cart operations and product clicks to connect the assistant to your cart and product pages.",
+      "prerequisites": [
+        {
+          "title": "A modern browser with Web Components support (Chrome, Edge, Firefox, Safari)"
+        },
+        {
+          "title": "A ShopPrompter® API key or token"
+        }
+      ]
+    },
+    "publishedAt": "2026-11-12T13:45:35Z",
+    "version": "v2.2.0"
+  },
+  {
     "changelog": "v1.2.1 release",
     "id": "pimcore-bundle",
     "integration": {
