@@ -1,0 +1,22 @@
+{
+  "changelog": "### Minor Changes\n\n- ae917b4: Add `@shop-prompter/vue`, a Vue 3 component wrapping the `<shop-prompter>` Web Component.\n\n  - Typed props, passed to the element as DOM properties, so objects and callbacks need no `.prop` modifier and no `isCustomElement` compiler option.\n  - Listen with `@cart-operation`, `@product-click`, `@navigation` and `@close`.\n  - A template ref exposes `open()`, `close()`, `toggle()`, `isOpen` and `element`.\n  - `dialog-trigger` also accepts a Vue template ref.\n\n### Patch Changes\n\n- @shop-prompter/html@2.2.0",
+  "id": "vue",
+  "integration": {
+    "api": "touch-points",
+    "capabilities": [],
+    "description": "The ShopPrompter® Vue SDK adds the AI shopping assistant to Vue 3 applications as a typed `<ShopPrompter>` component, including Nuxt.",
+    "docsUrl": "",
+    "id": "vue",
+    "overview": "Render `<ShopPrompter>` in any Vue template and configure it with typed props for the configuration, theme and display mode. It wraps the ShopPrompter® Web Component, so every display mode and theme option of the JavaScript SDK is available without any compiler configuration.\n\nListen to `@cart-operation` and `@product-click` to connect the assistant to your cart and router, and use a template ref to open or close the chat from your own UI.",
+    "prerequisites": [
+      {
+        "title": "Vue 3.3 or higher"
+      },
+      {
+        "title": "A ShopPrompter® API key or token"
+      }
+    ]
+  },
+  "publishedAt": "2026-11-12T13:54:44Z",
+  "version": "v2.2.0"
+}
