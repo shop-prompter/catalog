@@ -3,10 +3,9 @@ on:
   repository_dispatch:
     types: [sdk-released]
 
-# Queue concurrent release events so git pushes never conflict
-concurrency:
-  group: registry-write
-  cancel-in-progress: false
+# No `concurrency` group: a group keeps only one pending run and cancels the others, which
+# silently drops releases dispatched together (the JS SDK sends one per package). Runs that
+# overlap are handled by the rebuild-and-retry loop below instead.
 
 jobs:
   update-data:
@@ -14,23 +13,50 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # The branch tip. Without it, a repository_dispatch run checks out the commit main
+          # pointed to when the event was sent, and its push fails if another run pushed since.
+          ref: main
           token: ${{ secrets.REGISTRY_DISPATCH_TOKEN }}
 
-      - name: Update & Aggregate Data
+      - name: Update, aggregate, commit and push
+        # The payload goes through an env var, never into the script text: changelogs and
+        # descriptions contain quotes, backticks and `<…>`, which would break (or run in) the shell.
+        env:
+          PAYLOAD: ${{ toJson(github.event.client_payload) }}
         run: |
-          echo 'Updating ${{github.event.client_payload.id}}'
+          ID=$(jq -r '.id // empty' <<< "$PAYLOAD")
+          VERSION=$(jq -r '.version // empty' <<< "$PAYLOAD")
+          if ! [[ "$ID" =~ ^[a-z0-9][a-z0-9-]*$ ]]; then
+            echo "::error::Invalid or missing payload id: '$ID'"
+            exit 1
+          fi
+          echo "Updating $ID to $VERSION"
 
-          mkdir -p public/data
-          touch "public/data/${{ github.event.client_payload.id }}.json"
-          
-          # Write incoming payload
-          echo '${{ toJson(github.event.client_payload) }}' > "public/data/${{ github.event.client_payload.id }}.json"
-          
-          # Merge all integrations into one array
-          jq -s '.' public/data/*.json > public/all-integrations.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit and Push Changes
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: update ${{ github.event.client_payload.id }} to ${{ github.event.client_payload.version }}"
-          file_pattern: "public/*"
+          # Another run may push between our fetch and push: then rebuild on the new main and retry.
+          for attempt in 1 2 3 4 5; do
+            git fetch -q origin main
+            git reset -q --hard origin/main
+
+            mkdir -p public/data
+            jq '.' <<< "$PAYLOAD" > "public/data/$ID.json"
+            # Merge all integrations into one array
+            jq -s '.' public/data/*.json > public/all-integrations.json
+
+            git add public
+            if git diff --cached --quiet; then
+              echo "No changes for $ID."
+              exit 0
+            fi
+            git commit -q -m "chore: update $ID to $VERSION"
+            if git push -q origin HEAD:main; then
+              echo "Pushed $ID $VERSION."
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt): main moved on, retrying."
+            sleep $((attempt * 2))
+          done
+          echo "::error::Could not push $ID after 5 attempts."
+          exit 1
