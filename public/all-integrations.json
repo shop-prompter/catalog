@@ -1,5 +1,27 @@
 [
   {
+    "changelog": "### Minor Changes\n\n- e824859: Add `@shop-prompter/angular`, an Angular component for the `<shop-prompter>` Web Component (Angular 19 or higher).\n\n  - Import the standalone `ShopPrompterComponent` and use `<shop-prompter>` in your templates. No `CUSTOM_ELEMENTS_SCHEMA` is needed.\n  - Typed inputs, passed to the element as DOM properties: `[apiConfig]`, `[chatPosition]`, `[theme]`, `[cart]` and the other options of the JavaScript SDK.\n  - Outputs: `(cartOperation)`, `(productClick)`, `(navigation)` and `(closed)`. With a `(productClick)` handler the built-in product link is skipped.\n  - A template reference (`#chat`) exposes `open()`, `close()`, `toggle()`, `isOpen` and `element`.\n  - `[dialogTrigger]` also accepts a template reference or an `ElementRef`.\n\n### Patch Changes\n\n- @shop-prompter/html@2.3.0",
+    "id": "angular",
+    "integration": {
+      "api": "touch-points",
+      "capabilities": [],
+      "description": "The ShopPrompter® Angular SDK adds the AI shopping assistant to Angular applications as a typed, standalone `<shop-prompter>` component.",
+      "docsUrl": "",
+      "id": "angular",
+      "overview": "Import `ShopPrompterComponent` and use `<shop-prompter>` in any template, with typed inputs for the configuration, theme and display mode. No `CUSTOM_ELEMENTS_SCHEMA` is needed. It wraps the ShopPrompter® Web Component, so every display mode and theme option of the JavaScript SDK is available.\n\nHandle `(cartOperation)` and `(productClick)` to connect the assistant to your cart and router, and use a template reference to open or close the chat from your own UI.",
+      "prerequisites": [
+        {
+          "title": "Angular 19 or higher"
+        },
+        {
+          "title": "A ShopPrompter® API key or token"
+        }
+      ]
+    },
+    "publishedAt": "2026-11-12T16:23:19Z",
+    "version": "v2.3.0"
+  },
+  {
     "changelog": "v2.3.0 release",
     "id": "js",
     "integration": {
