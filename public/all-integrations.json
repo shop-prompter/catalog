@@ -73,6 +73,28 @@
     "version": "v1.2.1"
   },
   {
+    "changelog": "### Patch Changes\n\n- @shop-prompter/html@2.2.0",
+    "id": "react",
+    "integration": {
+      "api": "touch-points",
+      "capabilities": [],
+      "description": "The ShopPrompter® React SDK adds the AI shopping assistant to React applications as a typed `<ShopPrompter>` component, including Next.js with the App Router.",
+      "docsUrl": "",
+      "id": "react",
+      "overview": "Render `<ShopPrompter>` anywhere in your React app and configure it with regular props: typed configuration objects, theme and callbacks. It wraps the ShopPrompter® Web Component, so every display mode and theme option of the JavaScript SDK is available.\n\nUse `onCartOperation` and `onProductClick` to connect the assistant to your cart and router, and a ref to open or close the chat from your own UI.",
+      "prerequisites": [
+        {
+          "title": "React 18 or 19"
+        },
+        {
+          "title": "A ShopPrompter® API key or token"
+        }
+      ]
+    },
+    "publishedAt": "2026-11-12T13:48:32Z",
+    "version": "v2.2.0"
+  },
+  {
     "changelog": "### Minor Changes\n\n- ae917b4: Add `@shop-prompter/vue`, a Vue 3 component wrapping the `<shop-prompter>` Web Component.\n\n  - Typed props, passed to the element as DOM properties, so objects and callbacks need no `.prop` modifier and no `isCustomElement` compiler option.\n  - Listen with `@cart-operation`, `@product-click`, `@navigation` and `@close`.\n  - A template ref exposes `open()`, `close()`, `toggle()`, `isOpen` and `element`.\n  - `dialog-trigger` also accepts a Vue template ref.\n\n### Patch Changes\n\n- @shop-prompter/html@2.2.0",
     "id": "vue",
     "integration": {
