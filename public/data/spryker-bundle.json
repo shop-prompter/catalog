@@ -1,0 +1,50 @@
+{
+  "changelog": "**Full Changelog**: https://github.com/shop-prompter/spryker-bundle/compare/v0.0.1...v0.0.2",
+  "id": "spryker-bundle",
+  "integration": {
+    "api": "control",
+    "capabilities": [
+      {
+        "enabled": true,
+        "key": "catalog-sync"
+      },
+      {
+        "enabled": true,
+        "key": "customer-sync"
+      },
+      {
+        "enabled": true,
+        "key": "content-api"
+      },
+      {
+        "enabled": true,
+        "key": "order-sync"
+      },
+      {
+        "enabled": true,
+        "key": "product-assets"
+      },
+      {
+        "enabled": false,
+        "key": "faqs-api"
+      }
+    ],
+    "description": "Spryker is a composable commerce platform for B2C, B2B and marketplace businesses, with the Yves storefront and the headless Glue API.",
+    "docsUrl": "",
+    "id": "spryker",
+    "overview": "The Spryker integration keeps ShopPrompter® in sync with your Spryker shop: products with prices, stock, images and all their attributes, categories, selected CMS pages and blocks, customers and their orders. Changes are sent in real time through Spryker's event and queue system, including changes made by data import.\n\nIt also provides the storefront endpoints and Twig helpers the ShopPrompter® JS SDK needs, for Yves and for the Glue Storefront API.",
+    "prerequisites": [
+      {
+        "title": "Spryker with spryker/product 6.57 or higher"
+      },
+      {
+        "title": "PHP 8.3 or higher"
+      },
+      {
+        "title": "A queue (RabbitMQ) for real-time updates"
+      }
+    ]
+  },
+  "publishedAt": "2026-11-25T15:02:21Z",
+  "version": "v0.0.2"
+}
