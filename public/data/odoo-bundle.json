@@ -1,0 +1,51 @@
+{
+  "changelog": "**Full Changelog**: https://github.com/shop-prompter/odoo-bundle/compare/v20.0.2.0.0...v20.0.2.0.1",
+  "id": "odoo-bundle",
+  "integration": {
+    "api": "control",
+    "capabilities": [
+      {
+        "enabled": true,
+        "extra": [
+          "default-mapping-values",
+          "fallback-skus"
+        ],
+        "key": "catalog-sync"
+      },
+      {
+        "enabled": true,
+        "key": "customer-sync"
+      },
+      {
+        "enabled": true,
+        "key": "content-api"
+      },
+      {
+        "enabled": true,
+        "key": "order-sync"
+      },
+      {
+        "enabled": true,
+        "key": "product-assets"
+      },
+      {
+        "enabled": false,
+        "key": "faqs-api"
+      }
+    ],
+    "description": "Odoo is an open-source suite of business apps, including eCommerce, sales, inventory and CRM, in a single integrated platform.",
+    "docsUrl": "https://shopprompter.featurebase.app/en/help",
+    "id": "odoo",
+    "overview": "The Odoo integration keeps ShopPrompter® in sync with your Odoo eCommerce: products and their variants (prices, stock, images, categories, translations), eCommerce categories, product documents, customers, orders and any content such as blog posts or pages.\n\nIt also embeds the ShopPrompter® chat in your Odoo website, including add-to-cart from the chat.",
+    "prerequisites": [
+      {
+        "title": "Odoo 20.0"
+      },
+      {
+        "title": "Odoo eCommerce (website_sale) and Inventory apps"
+      }
+    ]
+  },
+  "publishedAt": "2026-11-25T15:19:26Z",
+  "version": "v20.0.2.0.1"
+}
